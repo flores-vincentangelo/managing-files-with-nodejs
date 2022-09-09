@@ -1,5 +1,5 @@
-const { closeSync, openSync, readdirSync, writeSync } = require('fs');
-const camelcase = require('camelCase');
+const { closeSync, openSync, readdirSync, watch, writeSync } = require('fs');
+const camelCase = require('camelcase');
 
 const indexFd = openSync('./index.js', 'w');
 
@@ -10,7 +10,7 @@ files.map(f => {
     console.log(`Adding a file: ${f}`);
 
     writeSync(indexFd,
-        `module.exports.${camelcase(name)} = require('./read/${name}').read;\n`);
+        `module.exports.${camelCase(name)} = require('./read/${name}').read;\n`);
 });
 
 closeSync(indexFd);
