@@ -1,6 +1,7 @@
 const fs = require('fs');
 
 
+
 module.exports.read = () => {
     let totalSize = 0;
     const fileName = './data/app.log';
