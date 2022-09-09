@@ -1,18 +1,21 @@
 const fs = require('fs');
 
-const fileName = "./data/app.log";
 
-const fd = fs.openSync(fileName);
-
-let count = 0;
-
-do {
-    const buffer = Buffer.alloc(200);
+module.exports.read = () => {
+    const fileName = "./data/app.log";
     
-    count = fs.readSync(fd, buffer, 0, buffer.length, null);
+    const fd = fs.openSync(fileName);
     
-    console.log(buffer.toString());
-
-} while(count > 0)
+    let count = 0;
+    
+    do {
+        const buffer = Buffer.alloc(200);
+        
+        count = fs.readSync(fd, buffer, 0, buffer.length, null);
+        
+        console.log(buffer.toString());
+    
+    } while(count > 0)
+};
 
 
