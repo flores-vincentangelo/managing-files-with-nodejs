@@ -1,5 +1,5 @@
 const { closeSync, openSync, readdirSync, writeSync } = require('fs');
-const camelcase = require('camelCase')
+const camelcase = require('camelCase');
 
 const indexFd = openSync('./index.js', 'w');
 
